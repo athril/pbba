@@ -41,7 +41,7 @@ void preverify(char *filename, long &noRows, long &noCols) {
   int nrows=0;
   while (std::getline(f,s) ) {
     tokenizer<escaped_list_separator<char> > tok(s, escaped_list_separator<char>('\\', ',', '\"'));
-    assert(std::distance(tok.begin(), tok.end())!=ncols);
+    assert(std::distance(tok.begin(), tok.end())==ncols);
     nrows++;
   }
   noCols=ncols;
